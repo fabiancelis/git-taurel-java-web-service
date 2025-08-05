@@ -297,8 +297,14 @@
 	                    </configuration>
 	                </execution>
 	            </executions>
+	            <configuration>
+			     <argLine>
+			         --add-opens=java.base/java.security=ALL-UNNAMED
+			     </argLine>
+			   </configuration>
             </plugin>
 		</plugins>
+		
 	</build>
 
 </project>
