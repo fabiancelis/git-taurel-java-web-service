@@ -10,10 +10,10 @@ import java.util.Properties;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
 
-import com.grupodgfarm.commons.exception.DgFarmException;
-import com.grupodgfarm.commons.exception.HandledException;
-import com.grupodgfarm.commons.exception.ManejadorExcepciones;
-import com.grupodgfarm.commons.exception.NotHandledException;
+import com.taurel.services.weblogin.exception.DgFarmException;
+import com.taurel.services.weblogin.exception.HandledException;
+import com.taurel.services.weblogin.exception.ManejadorExcepciones;
+import com.taurel.services.weblogin.exception.NotHandledException;
 
 public abstract class CommonsDao {
 
