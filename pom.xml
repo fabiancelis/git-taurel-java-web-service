@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.3.2.RELEASE</version> <!-- lookup parent from repository -->
+	</parent>
+	
+	<groupId>com.taurel.services</groupId>
+	<artifactId>weblogin</artifactId>
+	<version>1.0</version>
+	<name>weblogin</name>
+	<description>Servicios Web para el API La Occidental / weblogin</description>
+	
+	<packaging>war</packaging>
+
+	<organization>
+		<name>${organization.name}</name>
+		<url>${organization.url}</url>
+	</organization>
+	<scm>
+		<url>${scm.url}</url>
+	</scm>
+	
+	<properties>
+		<organization.name>Seguros La Occidental</organization.name>
+		<organization.url>https://www.laoccidental.com/</organization.url>
+		<organization.provider.name>Grupo DgFarm</organization.provider.name>
+		<organization.provider.url>http://www.grupodigifarm.com/</organization.provider.url>
+		<description.app>API La Occidental</description.app>
+		<inception.year.app>2020</inception.year.app>
+		<scm.organization>http://dgfarmdv01/scm/</scm.organization>
+		<scm.url>http://dgfarmdv01/scm/git/git-web-services-la-occidental</scm.url>
+		
+	 	<java.version>1.8</java.version>
+		<jersey.version>2.29.1</jersey.version>
+		<spring.version>4.3.3.RELEASE</spring.version>
+		<jackson.version>2.9.8</jackson.version>
+        <cargo-maven2-plugin.version>1.6.1</cargo-maven2-plugin.version>
+        <httpcore.version>4.4.9</httpcore.version>
+        <httpclient.version>4.5.5</httpclient.version>
+        <javax.servlet-api.version>4.0.0</javax.servlet-api.version>
+        <org.slf4j.version>1.7.30</org.slf4j.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+    	<maven.compiler.target>1.8</maven.compiler.target>
+    	<springfox.version>2.9.2</springfox.version>
+    	<swagger.version>2.1.0</swagger.version>
+    </properties>
+
+	<dependencies>
+	
+		<dependency>
+			<groupId>com.grupodgfarm</groupId>
+			<artifactId>commons-dgfarm</artifactId>
+			<version>0.0.2-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-jackson</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-client</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${javax.servlet-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.jersey.ext</groupId>
+            <artifactId>jersey-spring4</artifactId>
+            <version>${jersey.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.inject</groupId>
+            <artifactId>jersey-hk2</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.ext.rx</groupId>
+            <artifactId>jersey-rx-client-rxjava</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.ext.rx</groupId>
+            <artifactId>jersey-rx-client-rxjava2</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.jaxrs</groupId>
+            <artifactId>jackson-jaxrs-json-provider</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+		        <groupId>com.fasterxml.jackson.datatype</groupId>
+		        <artifactId>jackson-datatype-jsr310</artifactId>
+		        <version>${jackson.version}</version>
+		</dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-jdk14</artifactId>
+            <version>${org.slf4j.version}</version>
+        </dependency>
+        <dependency>
+		    <groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.jamonapi</groupId>
+			<artifactId>jamon</artifactId>
+			<version>2.81</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.hazelcast</groupId>
+					<artifactId>hazelcast-all</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.4</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>jms</artifactId>
+					<groupId>javax.jms</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jmxtools</artifactId>
+					<groupId>com.sun.jdmk</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jmxri</artifactId>
+					<groupId>com.sun.jmx</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.codehaus.jettison</groupId>
+			<artifactId>jettison</artifactId>
+			<version>1.1</version>
+			<exclusions>
+				<exclusion>
+					<groupId>stax</groupId>
+					<artifactId>stax-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.eclipse.persistence</groupId>
+		    <artifactId>org.eclipse.persistence.moxy</artifactId>
+		    <version>2.5.0</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>net.sf.jasperreports</groupId>
+		    <artifactId>jasperreports</artifactId>
+		    <version>6.4.0</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>com.twilio.sdk</groupId>
+		  <artifactId>twilio</artifactId>
+		  <version>7.55.1</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.mashape.unirest</groupId>
+		    <artifactId>unirest-java</artifactId>
+		    <version>1.4.9</version>
+		</dependency>
+		
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-jersey</artifactId>
+        <exclusions>
+        	<exclusion>
+        		<groupId>org.springframework.boot</groupId>
+        		<artifactId>spring-boot-starter-tomcat</artifactId>
+        	</exclusion>
+        </exclusions>
+    </dependency>
+    <dependency>
+        <groupId>io.swagger.core.v3</groupId>
+        <artifactId>swagger-annotations</artifactId>
+        <version>${swagger.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>io.swagger.core.v3</groupId>
+        <artifactId>swagger-core</artifactId>
+        <version>${swagger.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>io.swagger.core.v3</groupId>
+        <artifactId>swagger-jaxrs2</artifactId>
+        <version>${swagger.version}</version>
+        <exclusions>
+            <exclusion>
+                <groupId>io.github.classgraph</groupId>
+                <artifactId>classgraph</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+    <dependency>
+        <groupId>org.springdoc</groupId>
+        <artifactId>springdoc-openapi-ui</artifactId>
+        <version>1.2.18</version>
+    </dependency>
+	<dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>swagger-ui</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+   <dependency>
+	  <groupId>org.webjars</groupId>
+	  <artifactId>webjars-locator-jboss-vfs</artifactId>
+	  <version>0.1.0</version>
+   </dependency>
+   
+   <dependency>
+	    <groupId>org.glassfish.jersey.containers.glassfish</groupId>
+	    <artifactId>jersey-gf-cdi</artifactId>
+	    <version>2.12</version>
+	</dependency>
+   
+   <!-- <dependency>
+	    <groupId>io.springfox</groupId>
+	    <artifactId>springfox-swagger-ui</artifactId>
+	    <version>2.9.2</version>
+	</dependency> -->
+
+				
+	</dependencies>
+
+	<build>
+		<resources>
+	         <resource>
+	            <directory>src/main/java</directory>
+	            <excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+	        </resource>
+	    </resources>
+		<plugins>
+			<plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-war-plugin</artifactId>
+	            <version>3.1.0</version>
+	            <executions>
+	                <execution>
+	                    <id>default-war</id>
+	                    <phase>prepare-package</phase>
+	                    <configuration>
+	                        <failOnMissingWebXml>false</failOnMissingWebXml>
+	                    </configuration>
+	                </execution>
+	            </executions>
+            </plugin>
+		</plugins>
+	</build>
+
+</project>
