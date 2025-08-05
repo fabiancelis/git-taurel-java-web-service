@@ -294,14 +294,13 @@
 	                    <phase>prepare-package</phase>
 	                    <configuration>
 	                        <failOnMissingWebXml>false</failOnMissingWebXml>
+	                        <argLine>
+						         --add-opens=java.base/java.security=ALL-UNNAMED
+						     </argLine>
 	                    </configuration>
 	                </execution>
 	            </executions>
-	            <configuration>
-			     <argLine>
-			         --add-opens=java.base/java.security=ALL-UNNAMED
-			     </argLine>
-			   </configuration>
+	            
             </plugin>
 		</plugins>
 		
