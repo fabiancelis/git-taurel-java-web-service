@@ -5,19 +5,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.jdbc.object.StoredProcedure;
 
-import com.grupodgfarm.commons.persistence.dao.CommonsDao;
-import com.grupodgfarm.commons.resources.properties.ApplicationProperties;
 import com.jamonapi.Monitor;
 import com.jamonapi.MonitorFactory;
 import com.taurel.services.weblogin.message.request.RequestGeneric;
 import com.taurel.services.weblogin.message.response.ResponseGeneric;
 
+import resources.properties.ApplicationProperties;
+
 public abstract class AbstractDao extends CommonsDao {
 	
-	private static final Logger LOGGER = Logger.getLogger(AbstractDao.class);
+	private static final Logger LOGGER = LogManager.getLogger(AbstractDao.class);
 	
 	private ApplicationProperties propertyPlaceholderConfigurer;
 

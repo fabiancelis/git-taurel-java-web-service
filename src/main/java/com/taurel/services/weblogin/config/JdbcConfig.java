@@ -11,8 +11,9 @@ import org.springframework.core.io.Resource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jndi.JndiObjectFactoryBean;
 
-import com.grupodgfarm.commons.resources.properties.ApplicationProperties;
 import com.taurel.services.weblogin.persistence.procedure.EjemploStoredProcedure;
+
+import resources.properties.ApplicationProperties;
 
 @Configuration
 @ComponentScan(basePackages = { "com.taurel.services.weblogin.rest",
